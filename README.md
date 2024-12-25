@@ -61,8 +61,8 @@ graph TD
 Several make commands are included to make your life as developer easier. This includes logging into different containers, run code quality checks, performing tests, clearing caches and more. You can view them by running `make help`
 
 Some of the most used commands are:
-`make login-laravel` - Login to Laravel container
-`make clear-cache` - Clear cache
-`make code` - Run code quality checks
-`make fix` - Fix code style issues
-`make test` - Run tests
+- `make login-laravel` - Login to Laravel container
+- `make clear-cache` - Clear cache
+- `make code` - Run code quality checks
+- `make fix` - Fix code style issues
+- `make test` - Run tests

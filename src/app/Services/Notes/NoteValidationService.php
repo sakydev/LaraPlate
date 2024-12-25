@@ -15,7 +15,7 @@ class NoteValidationService extends ValidationService
     public function validateCanUpdate(Note $requestedNote, User $authenticatedUser): void
     {
         if (!$authenticatedUser->isAdmin()
-            && $requestedNote->note_id != $authenticatedUser->getAuthIdentifier()
+            && $requestedNote->user_id != $authenticatedUser->getAuthIdentifier()
         ) {
             throw new ForbiddenException('item.error.generic.invalidUpdatePermissions');
         }

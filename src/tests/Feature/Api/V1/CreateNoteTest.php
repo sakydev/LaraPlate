@@ -13,12 +13,16 @@ class CreateNoteTest extends TestCase
 
     private const string ENDPOINT = '/api/V1/notes';
 
+    private const string VALID_NAME = 'Test Note';
+
+    private const string VALID_CONTENT = 'This is a test note';
+
     public function testCreateNote(): void
     {
         $user = User::factory()->create();
         $data = [
-            'name' => 'Test Note',
-            'content' => 'This is a test note',
+            'name' => self::VALID_NAME,
+            'content' => self::VALID_CONTENT,
         ];
 
         $response = $this->actingAs($user)->postJson(self::ENDPOINT, $data);
@@ -43,15 +47,22 @@ class CreateNoteTest extends TestCase
         return [
             'missing: name' => [
                 'data' => [
-                    'content' => 'This is a test note',
+                    'content' => self::VALID_CONTENT,
                 ],
                 'validationField' => 'name',
             ],
             'missing: content' => [
                 'data' => [
-                    'name' => 'Test Note',
+                    'name' => self::VALID_NAME,
                 ],
                 'validationField' => 'content',
+            ],
+            'long: name' => [
+                'data' => [
+                    'name' => str_repeat('a', 256),
+                    'content' => self::VALID_CONTENT,
+                ],
+                'validationField' => 'name',
             ],
         ];
     }

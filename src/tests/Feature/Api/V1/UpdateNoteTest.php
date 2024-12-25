@@ -53,6 +53,21 @@ class UpdateNoteTest extends TestCase
         $response->assertForbidden();
     }
 
+    public function testCanOnlyUpdateExistingNote(): void
+    {
+        $user = User::factory()->create();
+
+        $data = [
+            'name' => self::VALID_NAME,
+            'content' => self::VALID_CONTENT,
+        ];
+
+        $requestUrl = sprintf(self::ENDPOINT, time());
+        $response = $this->actingAs($user)->putJson($requestUrl, $data);
+
+        $response->assertNotFound();
+    }
+
     #[DataProvider('validateDataProvider')]
     public function testUpdateNoteValidation(array $data, string $validationField): void
     {

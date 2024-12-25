@@ -21,9 +21,11 @@ class UpdateNoteTest extends TestCase
     public function testUpdateNote(): void
     {
         $user = User::factory()->create();
-        $note = Note::factory()->create([
-            'user_id' => $user->id,
-        ]);
+
+        /** @var Note $note */
+        $note = $user->notes()->create(
+            Note::factory()->make()->toArray()
+        );
 
         $data = [
             'name' => self::VALID_NAME,
@@ -72,9 +74,11 @@ class UpdateNoteTest extends TestCase
     public function testUpdateNoteValidation(array $data, string $validationField): void
     {
         $user = User::factory()->create();
-        $note = Note::factory()->create([
-            'user_id' => $user->id,
-        ]);
+
+        /** @var Note $note */
+        $note = $user->notes()->create(
+            Note::factory()->make()->toArray()
+        );
 
         $requestUrl = sprintf(self::ENDPOINT, $note->user_id);
         $response = $this->actingAs($user)->putJson($requestUrl, $data);

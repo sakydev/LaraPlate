@@ -1,0 +1,23 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - vendor/nesbot/carbon/extension.neon
+
+parameters:
+    paths:
+        - app/
+        - database/
+        - routes/
+        - tests/
+
+    # Level 10 is the highest level
+    level: 8
+
+    ignoreErrors:
+        - '#PHPDoc tag @var#'
+        - '#Method .*? does not exist#'
+        - '#Call to an undefined static method .*?::.*?#'
+
+    excludePaths:
+        - */storage/*
+        - */bootstrap/cache/*
+        - */vendor/*

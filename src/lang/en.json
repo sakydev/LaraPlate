@@ -1,0 +1,67 @@
+{
+    "auth": {
+        "error": {
+            "invalidCredentials": "User provided invalid credentials"
+        },
+        "success": {
+            "login": "User logged in successfully",
+            "registerMany": "Users registered successfully",
+            "registerOne": "User registered successfully"
+        }
+    },
+    "general": {
+        "error": {
+            "unknown": "Something went wrong trying to process request",
+            "unknownWithAction": "Something went wrong trying to process request [action: :action]"
+        }
+    },
+    "item": {
+        "error": {
+            "generic": {
+                "alreadyPublished": ":item already published",
+                "alreadyUnpublished": ":item is already unpublished",
+                "alreadyExists": ":item duplicate exists",
+                "invalidAccessPermissions": "User has insufficient permissions to access :item",
+                "invalidCreatePermissions": "User has insufficient permissions to create :item",
+                "invalidUpdatePermissions": "User has insufficient permissions to update :item",
+                "invalidValue": "User provided invalid item value",
+                "invalidUUID": "User provided invalid item UUID",
+                "findOne": "Item not found"
+            },
+            "user": {
+                "findOne": "User not found",
+                "findMany": "Error fetching users",
+                "updateOne": "Error updating user"
+            }
+        },
+        "success": {
+            "generic": {
+                "createOne": "Item created successfully",
+                "createMany": "Items created successfully",
+                "destroyOne": "Item deleted successfully",
+                "destroyMany": "Items deleted successfully",
+                "findMany": "Items fetched successfully",
+                "findOne": "Item fetched successfully",
+                "publishMany": "Items published successfully",
+                "publishOne": "Item published successfully",
+                "unpublishMany": "Items unpublished successfully",
+                "unpublishOne": "Item unpublished successfully",
+                "updateMany": "Items updated successfully",
+                "updateOne": "Item updated successfully"
+            },
+            "user": {
+                "findOne": "User fetched successfully",
+                "findMany": "Users fetched successfully",
+                "createOne": "User created successfully",
+                "destroyOne": "User deleted successfully",
+                "destroyMany": "Users deleted successfully",
+                "updateOne": "User updated successfully",
+                "updateMany": "Users updated successfully",
+                "publishOne": "User activated successfully",
+                "publishMany": "Users activated successfully",
+                "unpublishOne": "User deactivated successfully",
+                "unpublishMany": "Users deactivated successfully"
+            }
+        }
+    }
+}

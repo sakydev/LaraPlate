@@ -1,11 +1,10 @@
 <?php
 
-namespace Tests\Feature\Api\V1;
+namespace Tests\Feature\Api\V1\Notes;
 
 use App\Models\Note;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
 class DeleteNoteTest extends TestCase

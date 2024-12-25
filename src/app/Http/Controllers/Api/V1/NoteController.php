@@ -153,7 +153,7 @@ class NoteController extends Controller
             return new SuccessResponse(
                 'item.success.note.deleteOne',
                 [],
-                Response::HTTP_CREATED,
+                Response::HTTP_NO_CONTENT,
             );
         } catch (Throwable $exception) {
             // Bugsnag::notifyException($exception);

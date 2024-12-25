@@ -33,7 +33,7 @@ class NoteRepository
             'name' => $input['name'],
             'content' => $input['content'],
             'status' => $input['status'] ?? Note::STATUS_PUBLISHED,
-            'user_id' => $authenticatedUser,
+            'user_id' => $authenticatedUser->id,
         ]);
     }
 

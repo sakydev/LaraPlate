@@ -36,7 +36,7 @@ class NoteController extends Controller
             );
 
             return new SuccessResponse('item.success.note.findMany', [
-                'users' => $users,
+                'notes' => $users,
             ]);
         } catch (Throwable $exception) {
             return new ExceptionErrorResponse('item.error.note.findMany', $exception);
@@ -49,7 +49,7 @@ class NoteController extends Controller
             $user = $this->noteService->getById($noteId);
 
             return new SuccessResponse('item.success.note.findOne', [
-                'user' => new NoteResource($user)
+                'note' => new NoteResource($user)
             ], Response::HTTP_OK);
         } catch (Throwable $exception) {
             // Bugsnag::notifyException($exception);
@@ -70,7 +70,7 @@ class NoteController extends Controller
             $createdNote = $this->noteService->create($input, $authenticatedUser);
 
             return new SuccessResponse('item.success.note.createOne', [
-                'user' => new NoteResource($createdNote)
+                'note' => new NoteResource($createdNote)
             ], Response::HTTP_CREATED);
         } catch (Throwable $exception) {
             // Bugsnag::notifyException($exception);
@@ -91,7 +91,7 @@ class NoteController extends Controller
             $updatedNote = $this->noteService->update($noteId, $input, $authenticatedUser);
 
             return new SuccessResponse('item.success.note.updateOne', [
-                'user' => new NoteResource($updatedNote)
+                'note' => new NoteResource($updatedNote)
             ]);
         } catch (Throwable $exception) {
             // Bugsnag::notifyException($exception);
@@ -111,7 +111,7 @@ class NoteController extends Controller
             $activatedUser = $this->noteService->publish($noteId, $authenticatedUser);
 
             return new SuccessResponse('item.success.note.publishOne', [
-                'user' => new NoteResource($activatedUser)
+                'note' => new NoteResource($activatedUser)
             ], Response::HTTP_OK);
         } catch (Throwable $exception) {
             // Bugsnag::notifyException($exception);
@@ -131,7 +131,7 @@ class NoteController extends Controller
             $deactivatedUser = $this->noteService->draft($noteId, $authenticatedUser);
 
             return new SuccessResponse('item.success.note.unpublishOne', [
-                'user' => new NoteResource($deactivatedUser)
+                'note' => new NoteResource($deactivatedUser)
             ], Response::HTTP_OK);
         } catch (Throwable $exception) {
             // Bugsnag::notifyException($exception);

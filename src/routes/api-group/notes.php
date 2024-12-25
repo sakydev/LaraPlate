@@ -5,11 +5,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('notes')->middleware('auth:sanctum')->group(function () {
     Route::get('/', [NoteController::class, 'index'])->name('notes.list');
-    Route::get('/{userId}', [NoteController::class, 'show'])->name('notes.show');
-    Route::put('/{userId}', [NoteController::class, 'update'])->name('notes.update');
-    Route::delete('/{userId}', [NoteController::class, 'delete'])->name('notes.delete');
-    Route::put('/{userId}/publish', [NoteController::class, 'publish'])
+    Route::get('/{noteId}', [NoteController::class, 'show'])->name('notes.show');
+    Route::post('/', [NoteController::class, 'store'])->name('notes.store');
+    Route::put('/{noteId}', [NoteController::class, 'update'])->name('notes.update');
+    Route::delete('/{noteId}', [NoteController::class, 'delete'])->name('notes.delete');
+    Route::put('/{noteId}/publish', [NoteController::class, 'publish'])
         ->name('notes.publish');
-    Route::put('/{userId}/draft', [NoteController::class, 'draft'])
+    Route::put('/{noteId}/draft', [NoteController::class, 'draft'])
         ->name('notes.draft');
 });

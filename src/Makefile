@@ -8,7 +8,13 @@ PGSQL_CONTAINER=pgsql
 help: ## Shows this help
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_\-\.]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-### Login to containers Start ###
+### Commands related to containers Start ###
+up: ## Start the containers
+	./vendor/bin/sail up -d
+
+down: ## Stop the containers
+	./vendor/bin/sail down
+
 login-laravel: ## Login to laravel container
 	./vendor/bin/sail exec -it $(LARAVEL_CONTAINER) bash
 
@@ -17,7 +23,7 @@ login-redis: ## Login to redis container
 
 login-pgsql: ## Login to pgsql container
 	./vendor/bin/sail exec -it $(PGSQL_CONTAINER) psql -U postgres
-### Login to containers End ###
+### Commands related to containers End ###
 
 ### Common Laravel actions Start ###
 clear-cache: ## Clear cache

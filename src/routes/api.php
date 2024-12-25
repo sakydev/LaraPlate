@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::prefix('V1/')->group(function () {;
+Route::prefix('V1/')->group(function () {
     Route::group([], base_path('routes/api-group/users.php'));
     Route::group([], base_path('routes/api-group/notes.php'));
 });

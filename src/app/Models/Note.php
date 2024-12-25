@@ -14,6 +14,7 @@ class Note extends Model
         'name',
         'content',
         'status',
+        'user_id',
     ];
 
     public function user(): BelongsTo

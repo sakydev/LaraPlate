@@ -22,11 +22,6 @@ class UserService
      */
     public function create(array $input): User
     {
-        $validationErrors = $this->userValidationService->validateRegisterRequest($input);
-        if ($validationErrors) {
-            throw new UnprocessableException($validationErrors);
-        }
-
         return $this->userRepository->create($input);
     }
 

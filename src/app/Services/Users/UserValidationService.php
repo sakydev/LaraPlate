@@ -55,15 +55,4 @@ class UserValidationService extends ValidationService
     {
         $this->validateCanActivate($requestedUser, $authenticatedUser);
     }
-
-    public function validateRegisterRequest(array $input): ?array
-    {
-        $rules = [
-            'username' => ['required', 'string', 'min:3', 'max:50', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:4'],
-        ];
-
-        return $this->validateRules($input, $rules);
-    }
 }

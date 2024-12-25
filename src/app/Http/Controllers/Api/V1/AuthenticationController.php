@@ -6,10 +6,11 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Exceptions\UnprocessableException;
 use App\Http\Controllers\Controller;
+use App\Requests\Api\V1\RegisterUserRequest;
 use App\Resources\Api\V1\Responses\ErrorResponse;
 use App\Resources\Api\V1\Responses\SuccessResponse;
 use App\Resources\Api\V1\UserResource;
-use App\Services\Users\NoteService;
+use App\Services\Users\UserService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,19 +21,23 @@ use Throwable;
 class AuthenticationController extends Controller
 {
     public function __construct(
-        private readonly NoteService $userService,
+        private readonly UserService $userService,
     ) {
     }
 
-    public function register(Request $request): JsonResponse
+    public function register(RegisterUserRequest $request): JsonResponse
     {
-        try {
-            $input = $request->all();
-            $createdUser = $this->userService->create($input);
+        $input = $request->all();
 
+        try {
+            $createdUser = $this->userService->create($input);
             $userData = new UserResource($createdUser);
 
-            return new SuccessResponse('auth.success.registerOne', $userData->toArray());
+            return new SuccessResponse(
+                'auth.success.registerOne',
+                $userData->toArray(),
+                Response::HTTP_CREATED,
+            );
         } catch (UnprocessableException $exception) {
             return new ErrorResponse(
                 $exception->getErrors(),

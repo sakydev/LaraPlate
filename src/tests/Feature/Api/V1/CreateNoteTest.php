@@ -11,11 +11,11 @@ class CreateNoteTest extends TestCase
 {
     use RefreshDatabase;
 
-    private const string ENDPOINT = '/api/V1/notes';
+    private const ENDPOINT = '/api/V1/notes';
 
-    private const string VALID_NAME = 'Test Note';
+    private const VALID_NAME = 'Test Note';
 
-    private const string VALID_CONTENT = 'This is a test note';
+    private const VALID_CONTENT = 'This is a test note';
 
     public function testCreateNote(): void
     {

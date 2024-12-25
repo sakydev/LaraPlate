@@ -12,16 +12,18 @@ class UpdateNoteTest extends TestCase
 {
     use RefreshDatabase;
 
-    private const string ENDPOINT = '/api/V1/notes/%d';
+    private const ENDPOINT = '/api/V1/notes/%d';
 
-    private const string VALID_NAME = 'Test Note';
+    private const VALID_NAME = 'Test Note';
 
-    private const string VALID_CONTENT = 'This is a test note';
+    private const VALID_CONTENT = 'This is a test note';
 
     public function testUpdateNote(): void
     {
         $user = User::factory()->create();
-        $note = Note::factory()->forUser($user)->create();
+        $note = Note::factory()->create([
+            'user_id' => $user->id,
+        ]);
 
         $data = [
             'name' => self::VALID_NAME,
@@ -55,7 +57,9 @@ class UpdateNoteTest extends TestCase
     public function testUpdateNoteValidation(array $data, string $validationField): void
     {
         $user = User::factory()->create();
-        $note = Note::factory()->forUser($user)->create();
+        $note = Note::factory()->create([
+            'user_id' => $user->id,
+        ]);
 
         $requestUrl = sprintf(self::ENDPOINT, $note->user_id);
         $response = $this->actingAs($user)->putJson($requestUrl, $data);

@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends Factory<\App\Models\Note>
  */
 class NoteFactory extends Factory
 {
@@ -24,10 +24,5 @@ class NoteFactory extends Factory
             'status' => Note::STATUS_PUBLISHED,
             'user_id' => User::factory(),
         ];
-    }
-
-    public function forUser(User $user): self
-    {
-        return $this->state(fn () => ['user_id' => $user->id]);
     }
 }

@@ -4,9 +4,8 @@ namespace App\Services\Users;
 
 use App\Exceptions\ForbiddenException;
 use App\Models\User;
-use App\Services\ValidationService;
 
-class UserValidationService extends ValidationService
+class UserValidationService
 {
     /**
      * @throws ForbiddenException

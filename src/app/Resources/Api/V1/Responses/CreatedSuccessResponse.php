@@ -6,6 +6,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CreatedSuccessResponse extends SuccessResponse
 {
+    /**
+     * @param array<string, mixed> $data
+     * @param array<string, string> $headers
+     * */
     public function __construct(
         string $message,
         array $data = [],

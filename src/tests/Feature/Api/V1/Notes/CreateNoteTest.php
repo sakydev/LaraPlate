@@ -31,6 +31,9 @@ class CreateNoteTest extends TestCase
         $response->assertJsonFragment($data);
     }
 
+    /**
+     * @param array<string, array<string, array<string, string>|string>> $data
+     */
     #[DataProvider('validateDataProvider')]
     public function testCreateNoteValidation(array $data, string $validationField): void
     {
@@ -42,6 +45,9 @@ class CreateNoteTest extends TestCase
         $response->assertJsonValidationErrors($validationField);
     }
 
+    /**
+     * @return array<string, array<string, array<string, string>|string>>
+     */
     public static function validateDataProvider(): array
     {
         return [

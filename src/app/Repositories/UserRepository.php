@@ -15,6 +15,11 @@ class UserRepository
         return (new User())->where('id', $userId)->first();
     }
 
+    /**
+     * @param array<string, mixed> $parameters
+     *
+     * @return Collection<int, User>
+     * */
     public function list(array $parameters, int $page, int $limit): Collection
     {
         $skip = ($page * $limit) - $limit;
@@ -27,6 +32,9 @@ class UserRepository
         return $users->skip($skip)->take($limit)->orderBy('id', 'DESC')->get();
     }
 
+    /**
+     * @param array<string, mixed> $input
+     * */
     public function create(array $input): User
     {
         return User::create([
@@ -38,6 +46,9 @@ class UserRepository
         ]);
     }
 
+    /**
+     * @param array<string, mixed> $fieldValuePairs
+     * */
     public function update(User $user, array $fieldValuePairs): User
     {
         $user->fill($fieldValuePairs)->save();
@@ -45,7 +56,10 @@ class UserRepository
         return $user->refresh();
     }
 
-    public function updateById(int $userId, array $fieldValuePairs): bool
+    /**
+     * @param array<string, mixed> $fieldValuePairs
+     * */
+    public function updateById(int $userId, array $fieldValuePairs): int
     {
         return (new User())->where('id', $userId)->update($fieldValuePairs);
     }

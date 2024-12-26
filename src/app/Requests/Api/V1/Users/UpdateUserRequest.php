@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Requests\Api\V1\Notes;
+namespace App\Requests\Api\V1\Users;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateUserRequest extends FormRequest
 {
-    public function rules()
+    /** @return array<string, array<int, string>> */
+    public function rules(): array
     {
         return [
             'status' => ['sometimes', 'required', 'string', 'in:active,inactive'],

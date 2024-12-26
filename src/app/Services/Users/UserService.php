@@ -7,7 +7,7 @@ use App\Exceptions\NotFoundException;
 use App\Exceptions\UnprocessableException;
 use App\Models\User;
 use App\Repositories\UserRepository;
-use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Collection;
 
 class UserService
 {
@@ -18,6 +18,8 @@ class UserService
     }
 
     /**
+     * @param array<string, mixed> $input
+     *
      * @throws UnprocessableException
      */
     public function create(array $input): User
@@ -40,6 +42,9 @@ class UserService
     }
 
     /**
+     * @param array<string, mixed> $parameters
+     * @return Collection<int, User>
+     *
      * @throws ForbiddenException
      */
     public function list(array $parameters): Collection
@@ -52,6 +57,8 @@ class UserService
     }
 
     /**
+     * @param array<string, mixed> $input
+     *
      * @throws NotFoundException
      * @throws ForbiddenException
      */

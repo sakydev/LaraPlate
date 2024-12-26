@@ -31,8 +31,11 @@ class LoginUserTest extends TestCase
         $response->assertOk();
     }
 
+    /**
+     * @param array<string, array<string, array<string, string>>> $data
+     */
     #[DataProvider('validateDataProvider')]
-    public function testLoginUserValidation(array $data, string $validationField): void
+    public function testLoginUserValidation(array $data): void
     {
         $user = User::factory()->create();
 
@@ -41,6 +44,9 @@ class LoginUserTest extends TestCase
         $response->assertUnauthorized();
     }
 
+    /**
+     * @return array<string, array<string, array<string, string>|string>>
+     */
     public static function validateDataProvider(): array
     {
         return [
@@ -48,13 +54,11 @@ class LoginUserTest extends TestCase
                 'data' => [
                     'password' => self::VALID_PASSWORD,
                 ],
-                'validationField' => 'username',
             ],
             'missing: password' => [
                 'data' => [
                     'username' => self::VALID_USERNAME,
                 ],
-                'validationField' => 'password',
             ],
         ];
     }

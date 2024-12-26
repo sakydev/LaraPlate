@@ -5,9 +5,8 @@ namespace App\Services\Notes;
 use App\Exceptions\ForbiddenException;
 use App\Models\Note;
 use App\Models\User;
-use App\Services\ValidationService;
 
-class NoteValidationService extends ValidationService
+class NoteValidationService
 {
     /**
      * @throws ForbiddenException

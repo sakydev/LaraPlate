@@ -6,7 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterUserRequest extends FormRequest
 {
-    public function rules()
+    /** @return array<string, array<int, string>> */
+    public function rules(): array
     {
         return [
             'username' => ['required', 'string', 'min:3', 'max:50', 'unique:users'],

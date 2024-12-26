@@ -6,6 +6,10 @@ use Illuminate\Http\JsonResponse;
 
 class SuccessResponse extends JsonResponse
 {
+    /**
+     * @param array<string, mixed> $data
+     * @param array<string, string> $headers
+     * */
     public function __construct(
         string $message,
         array $data = [],

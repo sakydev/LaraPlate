@@ -34,6 +34,9 @@ class RegisterUserTest extends TestCase
         $response->assertJsonFragment($data);
     }
 
+    /**
+     * @param array<string, array<string, array<string, string>>> $data
+     */
     #[DataProvider('validateDataProvider')]
     public function testRegisterUserValidation(array $data, string $validationField): void
     {
@@ -45,6 +48,9 @@ class RegisterUserTest extends TestCase
         $response->assertJsonValidationErrors($validationField);
     }
 
+    /**
+     * @return array<string, array<string, array<string, string>|string>>
+     */
     public static function validateDataProvider(): array
     {
         return [

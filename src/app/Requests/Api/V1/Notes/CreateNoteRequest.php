@@ -6,7 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CreateNoteRequest extends FormRequest
 {
-    public function rules()
+    /** @return array<string, array<int, string>> */
+    public function rules(): array
     {
         return [
             'name' => ['required', 'string', 'max:255'],

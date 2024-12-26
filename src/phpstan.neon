@@ -21,3 +21,4 @@ parameters:
         - */storage/*
         - */bootstrap/cache/*
         - */vendor/*
+        - */Helpers/*

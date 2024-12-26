@@ -70,6 +70,9 @@ class UpdateNoteTest extends TestCase
         $response->assertNotFound();
     }
 
+    /**
+     * @param array<string, array<string, array<string, string>|string>> $data
+     */
     #[DataProvider('validateDataProvider')]
     public function testUpdateNoteValidation(array $data, string $validationField): void
     {
@@ -87,6 +90,9 @@ class UpdateNoteTest extends TestCase
         $response->assertJsonValidationErrors($validationField);
     }
 
+    /**
+     * @return array<string, array<string, array<string, string>|string>>
+     */
     public static function validateDataProvider(): array
     {
         return [

@@ -8,7 +8,7 @@ use App\Exceptions\UnprocessableException;
 use App\Models\Note;
 use App\Models\User;
 use App\Repositories\NoteRepository;
-use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Collection;
 
 class NoteService
 {
@@ -19,6 +19,8 @@ class NoteService
     }
 
     /**
+     * @param array<string, mixed> $input
+     *
      * @throws UnprocessableException
      */
     public function create(array $input, User $authenticatedUser): Note
@@ -41,6 +43,9 @@ class NoteService
     }
 
     /**
+     * @param array<string, mixed> $parameters
+     * @return Collection<int, Note>
+     *
      * @throws ForbiddenException
      */
     public function list(array $parameters): Collection
@@ -53,6 +58,8 @@ class NoteService
     }
 
     /**
+     * @param array<string, mixed> $input
+     *
      * @throws NotFoundException
      * @throws ForbiddenException
      */

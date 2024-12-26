@@ -11,6 +11,10 @@ use Throwable;
 
 class ExceptionErrorResponse extends ErrorResponse
 {
+    /**
+     * @param array<string, mixed>|string $error
+     * @param array<string, string> $headers
+     * */
     public function __construct(
         array|string $error,
         Throwable|null $exception = null,

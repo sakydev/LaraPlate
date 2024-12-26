@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Requests\Api\V1\Notes\UpdateUserRequest;
+use App\Requests\Api\V1\Users\UpdateUserRequest;
 use App\Resources\Api\V1\Responses\ExceptionErrorResponse;
 use App\Resources\Api\V1\Responses\SuccessResponse;
 use App\Resources\Api\V1\UserResource;

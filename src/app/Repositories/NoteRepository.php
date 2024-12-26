@@ -15,6 +15,11 @@ class NoteRepository
         return (new Note())->find($noteId);
     }
 
+    /**
+     * @param array<string, string> $parameters
+     *
+     * @return Collection<int, Note>
+     * */
     public function list(array $parameters, int $page, int $limit): Collection
     {
         $skip = ($page * $limit) - $limit;
@@ -27,6 +32,9 @@ class NoteRepository
         return $notes->skip($skip)->take($limit)->orderBy('id', 'DESC')->get();
     }
 
+    /**
+     * @param array<string, mixed> $input
+     * */
     public function create(array $input, User $authenticatedUser): Note
     {
         return Note::create([
@@ -37,6 +45,9 @@ class NoteRepository
         ]);
     }
 
+    /**
+     * @param array<string, mixed> $fieldValuePairs
+     * */
     public function update(Note $note, array $fieldValuePairs): Note
     {
         $note->fill($fieldValuePairs)->save();
@@ -44,7 +55,10 @@ class NoteRepository
         return $note->refresh();
     }
 
-    public function updateById(int $noteId, array $fieldValuePairs): bool
+    /**
+     * @param array<string, mixed> $fieldValuePairs
+     * */
+    public function updateById(int $noteId, array $fieldValuePairs): int
     {
         return (new Note())->where('id', $noteId)->update($fieldValuePairs);
     }
@@ -67,13 +81,14 @@ class NoteRepository
 
     public function delete(Note $note): bool
     {
-        return $note->delete();
+        return (bool) $note->delete();
     }
 
     public function deleteById(int $noteId): bool
     {
         $note = $this->get($noteId);
 
-        return $note->delete();
+        return (bool) $note?->delete();
+
     }
 }

@@ -73,6 +73,9 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * @return HasMany<Note, $this>
+     */
     public function notes(): HasMany
     {
         return $this->hasMany(Note::class);

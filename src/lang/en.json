@@ -29,9 +29,18 @@
                 "findOne": "Item not found"
             },
             "user": {
-                "findOne": "User not found",
-                "findMany": "Error fetching users",
-                "updateOne": "Error updating user"
+                "findOne": "Problem fetching user",
+                "findMany": "Problem fetching users",
+                "updateOne": "Problem updating user",
+                "deleteOne": "Problem deleting user"
+            },
+            "note": {
+                "findOne": "Problem fetching note",
+                "findMany": "Problem fetching notes",
+                "createOne": "Problem creating note",
+                "destroyOne": "Problem deleting note",
+                "destroyMany": "Problem deleting notes",
+                "updateOne": "Problem updating note"
             }
         },
         "success": {
@@ -61,6 +70,19 @@
                 "publishMany": "Users activated successfully",
                 "unpublishOne": "User deactivated successfully",
                 "unpublishMany": "Users deactivated successfully"
+            },
+            "note": {
+                "findOne": "Note fetched successfully",
+                "findMany": "Notes fetched successfully",
+                "createOne": "Note created successfully",
+                "destroyOne": "Note deleted successfully",
+                "destroyMany": "Notes deleted successfully",
+                "updateOne": "Note updated successfully",
+                "updateMany": "Notes updated successfully",
+                "publishOne": "Note published successfully",
+                "publishMany": "Notes published successfully",
+                "unpublishOne": "Note drafted successfully",
+                "unpublishMany": "Notes drafted successfully"
             }
         }
     }

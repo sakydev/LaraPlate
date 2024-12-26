@@ -89,6 +89,5 @@ class NoteRepository
         $note = $this->get($noteId);
 
         return (bool) $note?->delete();
-
     }
 }

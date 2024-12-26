@@ -14,7 +14,8 @@ class NoteValidationService extends ValidationService
      */
     public function validateCanUpdate(Note $requestedNote, User $authenticatedUser): void
     {
-        if (!$authenticatedUser->isAdmin()
+        if (
+            !$authenticatedUser->isAdmin()
             && $requestedNote->user_id != $authenticatedUser->getAuthIdentifier()
         ) {
             throw new ForbiddenException('item.error.generic.invalidUpdatePermissions');
@@ -26,7 +27,8 @@ class NoteValidationService extends ValidationService
      */
     public function validateCanPublish(Note $requestedNote, User $authenticatedUser): void
     {
-        if (!$authenticatedUser->isAdmin()
+        if (
+            !$authenticatedUser->isAdmin()
             || $requestedNote->user_id === $authenticatedUser->getAuthIdentifier()
         ) {
             throw new ForbiddenException('item.error.generic.invalidUpdatePermissions');

@@ -15,8 +15,6 @@ class LoginUserTest extends TestCase
 
     private const VALID_USERNAME = 'blackWolf';
 
-    private const VALID_EMAIL = 'test@gmail.com';
-
     private const VALID_PASSWORD = 'A$trongPassword123';
 
     public function testLoginUser(): void

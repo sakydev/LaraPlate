@@ -13,7 +13,8 @@ class UserValidationService extends ValidationService
      */
     public function validateCanUpdate(User $requestedUser, User $authenticatedUser): void
     {
-        if (!$authenticatedUser->isAdmin()
+        if (
+            !$authenticatedUser->isAdmin()
             && $requestedUser->id != $authenticatedUser->getAuthIdentifier()
         ) {
             throw new ForbiddenException('item.error.generic.invalidUpdatePermissions');
@@ -25,7 +26,8 @@ class UserValidationService extends ValidationService
      */
     public function validateCanActivate(User $requestedUser, User $authenticatedUser): void
     {
-        if (!$authenticatedUser->isAdmin()
+        if (
+            !$authenticatedUser->isAdmin()
             || $requestedUser->id === $authenticatedUser->getAuthIdentifier()
         ) {
             throw new ForbiddenException('item.error.generic.invalidUpdatePermissions');

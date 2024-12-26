@@ -21,7 +21,7 @@ class NoteService
     /**
      * @throws UnprocessableException
      */
-    public function create(array $input, User $authenticatedUser):  Note
+    public function create(array $input, User $authenticatedUser): Note
     {
         return $this->noteRepository->create($input, $authenticatedUser);
     }

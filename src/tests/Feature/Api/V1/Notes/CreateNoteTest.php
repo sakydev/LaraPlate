@@ -29,6 +29,8 @@ class CreateNoteTest extends TestCase
 
         $response->assertCreated();
         $response->assertJsonFragment($data);
+
+        $this->assertSuccess($response->json());
     }
 
     /**

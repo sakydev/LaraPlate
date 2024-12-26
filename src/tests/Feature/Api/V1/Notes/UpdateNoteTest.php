@@ -68,6 +68,7 @@ class UpdateNoteTest extends TestCase
         $response = $this->actingAs($user)->putJson($requestUrl, $data);
 
         $response->assertNotFound();
+        $this->assertError($response->json());
     }
 
     /**
@@ -88,6 +89,8 @@ class UpdateNoteTest extends TestCase
 
         $response->assertStatus(422);
         $response->assertJsonValidationErrors($validationField);
+
+        $this->assertError($response->json());
     }
 
     /**

@@ -27,6 +27,8 @@ class ShowNoteTest extends TestCase
 
         $response->assertOk();
         $response->assertJsonFragment($note->toArray());
+
+        $this->assertSuccess($response->json());
     }
 
     public function testShowNoteNotFound(): void
@@ -37,5 +39,7 @@ class ShowNoteTest extends TestCase
         $response = $this->actingAs($user)->getJson($requestUrl);
 
         $response->assertNotFound();
+
+        $this->assertError($response->json());
     }
 }

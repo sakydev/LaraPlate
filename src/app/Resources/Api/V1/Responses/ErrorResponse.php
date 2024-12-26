@@ -14,7 +14,7 @@ class ErrorResponse extends JsonResponse
     {
         parent::__construct(
             [
-                'status' => 'error',
+                'success' => null,
                 'errors' => is_array($error) ? $error : [phrase($error)],
             ],
             $status,

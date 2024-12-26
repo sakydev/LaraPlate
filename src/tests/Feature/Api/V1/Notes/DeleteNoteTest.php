@@ -35,6 +35,7 @@ class DeleteNoteTest extends TestCase
         $response = $this->actingAs($user)->deleteJson($requestUrl);
 
         $response->assertForbidden();
+        $this->assertError($response->json());
     }
 
     public function testCanOnlyDeleteExistingNote(): void
@@ -45,5 +46,6 @@ class DeleteNoteTest extends TestCase
         $response = $this->actingAs($user)->deleteJson($requestUrl);
 
         $response->assertNotFound();
+        $this->assertError($response->json());
     }
 }

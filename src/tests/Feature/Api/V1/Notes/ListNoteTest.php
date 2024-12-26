@@ -27,5 +27,6 @@ class ListNoteTest extends TestCase
 
         /** @phpstan-ignore-next-line */
         $response->assertJsonFragment($notes->first()->toArray());
+        $this->assertSuccess($response->json());
     }
 }

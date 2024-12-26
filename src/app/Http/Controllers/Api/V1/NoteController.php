@@ -6,9 +6,8 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Requests\Api\V1\CreateNoteRequest;
-use App\Requests\Api\V1\UpdateNoteRequest;
-use App\Requests\Api\V1\UpdateUserRequest;
+use App\Requests\Api\V1\Notes\CreateNoteRequest;
+use App\Requests\Api\V1\Notes\UpdateNoteRequest;
 use App\Resources\Api\V1\NoteResource;
 use App\Resources\Api\V1\Responses\ExceptionErrorResponse;
 use App\Resources\Api\V1\Responses\SuccessResponse;

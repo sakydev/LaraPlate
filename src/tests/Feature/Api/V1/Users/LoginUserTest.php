@@ -48,7 +48,6 @@ class LoginUserTest extends TestCase
         return [
             'missing: username' => [
                 'data' => [
-                    'email' => self::VALID_EMAIL,
                     'password' => self::VALID_PASSWORD,
                 ],
                 'validationField' => 'username',
@@ -56,7 +55,6 @@ class LoginUserTest extends TestCase
             'missing: password' => [
                 'data' => [
                     'username' => self::VALID_USERNAME,
-                    'email' => self::VALID_EMAIL,
                 ],
                 'validationField' => 'password',
             ],

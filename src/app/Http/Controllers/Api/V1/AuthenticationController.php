@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Exceptions\UnprocessableException;
 use App\Http\Controllers\Controller;
-use App\Requests\Api\V1\RegisterUserRequest;
+use App\Requests\Api\V1\Users\RegisterUserRequest;
 use App\Resources\Api\V1\Responses\ErrorResponse;
 use App\Resources\Api\V1\Responses\SuccessResponse;
 use App\Resources\Api\V1\UserResource;

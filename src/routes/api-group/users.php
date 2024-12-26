@@ -4,14 +4,14 @@ use App\Http\Controllers\Api\V1\AuthenticationController;
 use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('users')->group(function () {
+Route::prefix('users')->group(function (): void {
     Route::post('/', [AuthenticationController::class, 'register'])->name('users.register');
     Route::post('/login', [AuthenticationController::class, 'login'])->name('users.login');
 
     Route::get('/', [UserController::class, 'index'])->name('users.list');
     Route::get('/{userId}', [UserController::class, 'show'])->name('users.show');
 
-    Route::middleware('auth:sanctum')->group(function () {
+    Route::middleware('auth:sanctum')->group(function (): void {
         Route::put('/{userId}', [UserController::class, 'update'])->name('users.update');
         Route::put('/{userId}/activate', [UserController::class, 'activate'])
             ->name('users.activate');

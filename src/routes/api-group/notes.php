@@ -3,7 +3,7 @@
 use App\Http\Controllers\Api\V1\NoteController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('notes')->middleware('auth:sanctum')->group(function () {
+Route::prefix('notes')->middleware('auth:sanctum')->group(function (): void {
     Route::get('/', [NoteController::class, 'index'])->name('notes.list');
     Route::get('/{noteId}', [NoteController::class, 'show'])->name('notes.show');
     Route::post('/', [NoteController::class, 'store'])->name('notes.store');

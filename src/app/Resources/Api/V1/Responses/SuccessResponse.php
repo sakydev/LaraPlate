@@ -7,12 +7,12 @@ use Illuminate\Http\JsonResponse;
 class SuccessResponse extends JsonResponse
 {
     /**
-     * @param array<string, mixed> $data
+     * @param array<string, mixed> $content
      * @param array<string, string> $headers
      * */
     public function __construct(
         string $message,
-        array $data = [],
+        array $content = [],
         int $status = 200,
         array $headers = [],
         int $options = 0,
@@ -21,7 +21,7 @@ class SuccessResponse extends JsonResponse
             [
                 'status' => 'success',
                 'message' => phrase($message),
-                'content' => $data,
+                'content' => $content,
             ],
             $status,
             $headers,

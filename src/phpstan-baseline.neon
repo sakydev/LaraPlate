@@ -1,0 +1,25 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to an undefined property App\\Models\\User\:\:\$includeToken\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Resources/Api/V1/UserResource.php
+
+		-
+			message: '#^Property App\\Resources\\Api\\V1\\UserResource\:\:\$includeToken is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: app/Resources/Api/V1/UserResource.php
+
+		-
+			message: '#^Undefined variable\: \$this$#'
+			identifier: variable.undefined
+			count: 1
+			path: routes/console.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/ExampleTest.php
